@@ -16,10 +16,10 @@ doWorkPromise.then((result) => {
 const add = (a, b) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(a + b)
-        }, 2000)
-    })
-}
+            resolve(a + b);
+        }, 2000);
+    });
+};
 
 // Without promise chaining
 /*
@@ -35,11 +35,14 @@ add(1, 9).then((sum) => {
 })*/
 
 // With promise chaining
-add(5, 8).then((sum) => {
-    console.log(sum)
-    return add(sum, 5)
-}).then((result) => {
-    console.log(result)
-}).catch((er) => {
-    console.log(er)
-})
+add(5, 8)
+    .then((sum) => {
+        console.log(sum);
+        return add(sum, 5);
+    })
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((er) => {
+        console.log(er);
+    });
